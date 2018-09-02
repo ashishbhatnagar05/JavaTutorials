@@ -1,4 +1,4 @@
-package com.practise.serialization;
+package com.practise.clone;
 
 import org.junit.Test;
 

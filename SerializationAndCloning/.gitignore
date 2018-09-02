@@ -11,3 +11,5 @@ buildNumber.properties
 *.class
 *.project
 *.classpath
+.settings/
+bin/
