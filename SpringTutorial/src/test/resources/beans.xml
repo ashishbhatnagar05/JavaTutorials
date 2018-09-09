@@ -1,11 +1,37 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+	 http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-init-method="init">
 
+	<context:annotation-config />
+	<context:component-scan
+		base-package="example.spring.core" />
 	<bean id="student" class="example.spring.core.Student"
-		init-method="init" scope="prototype">
-
-
+		scope="prototype">
+		<constructor-arg name="id" value="123"></constructor-arg>
+		<constructor-arg name="name" value="ashish"></constructor-arg>
+		<property name="department" value="EC" />
+		<property name="addresses">
+			<util:list list-class="java.util.LinkedList">
+				<ref bean="address" />
+			</util:list>
+		</property>
 	</bean>
+
+	<bean id="address" class="example.spring.core.Address"
+		scope="prototype">
+		<property name="city" ref="city"></property>
+	</bean>
+
+	<bean id="city" class="example.spring.core.City" scope="prototype">
+		<property name="name" value="Pune"></property>
+	</bean>
+
+	<bean id="utilities" class="example.spring.core.Utilities" />
 </beans>

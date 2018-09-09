@@ -22,7 +22,9 @@ public class SpringCoreTest {
 	@Test
 	public void testContextConfigurationLoading() {
 		assertNotNull(student);
-		System.out.println(student.getId());
+		System.out.println("autowired object's hashcode: " + student.hashCode());
+		System.out.println(student.getId() + student.getName() + student.getDepartment()
+				+ student.getAddresses().get(0).getCity().getName());
 	}
 
 	@Ignore
