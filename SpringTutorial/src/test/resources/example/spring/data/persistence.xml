@@ -12,8 +12,22 @@
 	<context:component-scan
 		base-package="example.spring.data" />
 
-	<bean id="customerDAO" class="example.spring.data.JdbcCustomerDAO">
+	<context:property-placeholder
+		location="classpath:/example/spring/data/db.properties" />
+
+	<bean id="customerDAOBasic"
+		class="example.spring.data.JdbcCustomerDAO">
 		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="jdbcTemplateCustomerDAO"
+		class="example.spring.data.JdbcTemplateCustomerDAO">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 
 </beans>

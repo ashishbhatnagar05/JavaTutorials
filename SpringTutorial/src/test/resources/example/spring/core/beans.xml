@@ -15,7 +15,7 @@
 
 	<!-- if we want to use annotation for property file inject -->
 	<context:property-placeholder
-		location="classpath:login.properties" />
+		location="classpath:/example/spring/core/login.properties" />
 
 	<bean id="student" class="example.spring.core.Student"
 		scope="prototype">

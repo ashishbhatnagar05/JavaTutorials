@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
 public class JdbcCustomerDAO implements CustomerDAO {
-	
+
 	private DataSource dataSource;
 
 	public void setDataSource(DataSource dataSource) {

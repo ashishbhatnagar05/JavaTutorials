@@ -1,5 +1,6 @@
 package example.spring.data.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -19,13 +20,25 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
  */
 @Configuration
 public class Config {
+	@Value("${jdbc.driver.classname}")
+	private String driverClassName;
+
+	@Value("${jdbc.url}")
+	private String url;
+
+	@Value("${jdbc.username}")
+	private String useraname;
+
+	@Value("${jdbc.password}")
+	private String password;
+
 	@Bean(name = "dataSource")
 	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:~/myDB");
-		dataSource.setUsername("sa");
-		dataSource.setPassword("");
+		dataSource.setDriverClassName(driverClassName);
+		dataSource.setUrl(url);
+		dataSource.setUsername(useraname);
+		dataSource.setPassword(password);
 
 		Resource initSchema = new ClassPathResource("example/spring/data/schema.sql");
 		DatabasePopulator databasePopulator = new ResourceDatabasePopulator(initSchema);
