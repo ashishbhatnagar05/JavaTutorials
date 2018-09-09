@@ -2,11 +2,14 @@ package example.spring.core;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
+
 //Need to provide setter for all the properties that will be specified in bean. For those properties which are being used by cons-arg, we need not provide setter method
 public class Student {
 
 	private int id;
 	private String name;
+	@Value("${department}")
 	private String department;
 	private List<Address> addresses;
 

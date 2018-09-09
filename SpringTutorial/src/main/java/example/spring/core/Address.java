@@ -1,5 +1,8 @@
 package example.spring.core;
 
+import javax.annotation.Resource;
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Address {
@@ -8,6 +11,8 @@ public class Address {
 	private String building;
 	private String Locality;
 	@Autowired
+	// @Resource
+	// @Inject
 	private City city;
 
 	public City getCity() {
