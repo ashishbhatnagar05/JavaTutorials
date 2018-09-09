@@ -12,7 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "file:src/test/resources/beans.xml") // all beans will get initialized when the whole
+@ContextConfiguration(locations = "file:src/test/resources/example/spring/core/beans.xml") // all beans will get initialized when the whole
 																		// test loaded
 public class SpringCoreTest {
 
