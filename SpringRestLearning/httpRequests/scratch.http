@@ -1,0 +1,25 @@
+GET http://localhost:10001/hello/message
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-09-12T011520.200.txt
+<> 2018-09-12T125305.200.txt
+
+###
+
+### Send POST request with json body
+POST http://localhost:10001/hello/post
+Content-Type: application/json
+
+{
+  "id": 123,
+  "name": "ashish"
+}
+
+
+###
+
+GET https://google.co.uk
+Content-Type: application/json
+
+###
