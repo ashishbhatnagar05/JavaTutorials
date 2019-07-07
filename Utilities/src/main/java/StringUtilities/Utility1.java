@@ -33,4 +33,8 @@ public class Utility1 {
         return sb.toString();
     }
 
+    public static boolean isEmpty(String str) {
+        return str == null || str.isEmpty();
+    }
+
 }
